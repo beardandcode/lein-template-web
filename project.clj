@@ -1,4 +1,4 @@
-(defproject com.beardandcode.web/lein-template "0.1.0"
+(defproject com.beardandcode.web/lein-template "0.1.1"
   :description "A template to generate web applications"
   :url "https://github.com/beardandcode/lein-template-web"
   :license {:name "MIT"
