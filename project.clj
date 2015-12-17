@@ -4,4 +4,6 @@
   :license {:name "MIT"
             :url "https://opensource.org/licenses/MIT"}
   :eval-in-leiningen true
+  :dependencies [[me.raynes/fs "1.4.6"]
+                 [cpath-clj "0.1.2"]]
   :signing {:gpg-key "tom@beardandcode.com"})

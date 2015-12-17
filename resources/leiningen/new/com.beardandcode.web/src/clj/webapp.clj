@@ -10,7 +10,18 @@
 (defn routes-fn [dependencies options]
   (-> (routes
        
-       (GET "/" [] "Hello world!")
+       (GET "/" [] "
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href=\"/static/css/bundle.css\" rel=\"stylesheet\">
+  </head>
+  <body>
+     <div class=\"container\">
+       <h1>Hello world!</h1>
+     </div>
+  </body>
+</h1>")
 
        (route/resources "/static/"))
       

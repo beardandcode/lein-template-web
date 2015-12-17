@@ -6,6 +6,7 @@
             [environ.core :refer [env]]
             [reloaded.repl :refer [system init start stop go reset clear]]
             [com.beardandcode.components.web-server :refer [port]]
+            [com.beardandcode.tools :refer [scss]]
             [com.beardandcode.{{name}}.system :refer [new-system]]))
 
 (reloaded.repl/set-init!

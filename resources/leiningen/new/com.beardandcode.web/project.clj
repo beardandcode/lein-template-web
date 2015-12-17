@@ -26,6 +26,8 @@
 
   :uberjar-name "{{name}}.jar"
 
+  :aliases {"scss" ["run" "-m" "com.beardandcode.tools/scss-main"]}
+
   :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.10"]
                                   [reloaded.repl "0.1.0"]
                                   [clj-webdriver "0.7.2"]
@@ -39,5 +41,6 @@
                          :port 8080}}
              :test {:env {:ip-address "127.0.0.1"
                           :port 0}}
-             :uberjar {:main com.beardandcode.{{name}}
+             :uberjar {:prep-tasks ["scss" "javac" "compile"]
+                       :main com.beardandcode.{{name}}
                        :aot :all}})

@@ -4,6 +4,7 @@ A web application that does something super awesome.
 
   - [Leiningen 2+](http://leiningen.org)
   - PhantomJS 1.9.8 - Sadly Selenium doesn't yet support PhantomJS 2+, [PhantomJS 1.9.8 can be found here](https://bitbucket.org/ariya/phantomjs/downloads)
+  - [sassc](http://github.com/sass/sassc) - Can be found in homebrew for OSX
 
 ## Try
 
