@@ -3,4 +3,5 @@
   :url "https://github.com/beardandcode/lein-template-web"
   :license {:name "MIT"
             :url "https://opensource.org/licenses/MIT"}
-  :eval-in-leiningen true)
+  :eval-in-leiningen true
+  :signing {:gpg-key "tom@beardandcode.com"})
