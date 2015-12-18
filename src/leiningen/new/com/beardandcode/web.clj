@@ -31,6 +31,7 @@
               :human-name (humanise name)}]
     (main/info "Generating fresh 'lein new' com.beardandcode.web project.")
     (->files data
+             [".gitignore" (render "gitignore" data)]
              ["LICENSE" (render "LICENSE" data)]
              ["project.clj" (render "project.clj" data)]
              ["README.md" (render "README.md" data)]
