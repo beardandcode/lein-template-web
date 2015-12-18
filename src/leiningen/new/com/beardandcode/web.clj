@@ -36,6 +36,8 @@
              ["src/clj/com/beardandcode/{{name-path}}.clj" (render "entrypoint.clj" data)]
              ["src/clj/com/beardandcode/{{name-path}}/webapp.clj" (render "src/clj/webapp.clj" data)]
              ["src/clj/com/beardandcode/{{name-path}}/system.clj" (render "src/clj/system.clj" data)]
+             ["src/templates/base.html" (render "src/templates/base.html" data)]
+             ["src/templates/home.html" (render "src/templates/home.html" data)]
              ["test/clj/com/beardandcode/{{name-path}}/integration.clj" (render "test/clj/integration.clj" data)]
              ["test/clj/com/beardandcode/{{name-path}}/integration/webapp_test.clj" (render "test/clj/integration/webapp_test.clj" data)])
     (copy-resource-dir "leiningen/new/com.beardandcode.web/src/scss"

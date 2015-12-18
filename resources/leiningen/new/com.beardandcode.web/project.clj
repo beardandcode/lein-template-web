@@ -18,7 +18,8 @@
                  [environ "1.0.0"]
                  [com.beardandcode/components "0.1.2"]
                  [compojure "1.4.0"]
-                 [ring/ring-anti-forgery "1.0.0"]]
+                 [ring/ring-anti-forgery "1.0.0"]
+                 [selmer "0.9.5"]]
 
   :source-paths ["src/clj"]
   :test-paths ["test/clj"]

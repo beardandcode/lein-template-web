@@ -10,4 +10,4 @@
 
 (deftest hello-world
   (goto system "/")
-  (is (= (wd/text "body") "Hello world!")))
+  (is (= (wd/text "main > h1") "Hello world!")))

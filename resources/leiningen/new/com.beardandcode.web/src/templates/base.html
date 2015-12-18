@@ -1,0 +1,29 @@
+{{=<% %>=}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%name%></title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1><a href="/"><%name%></a></h1>
+        <nav>
+          <ul>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        {% block body %}
+        {% endblock %}
+      </main>
+      <footer>
+        Made with love by <a href="http://beardandcode.com">Beard &amp; Code</a>. Read our <ul>
+          <li><a href="#">privacy policy</a></li>
+        </ul>.
+      </footer>
+    </div>
+  </body>
+</html>
+<%={{ }}=%>

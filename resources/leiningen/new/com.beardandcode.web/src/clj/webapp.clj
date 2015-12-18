@@ -5,23 +5,13 @@
             [ring.middleware
              [params :refer [wrap-params]]
              [session :refer [wrap-session]]
-             [anti-forgery :refer [wrap-anti-forgery]]]))
+             [anti-forgery :refer [wrap-anti-forgery]]]
+            [selmer.parser :refer [render-file]]))
 
 (defn routes-fn [dependencies options]
   (-> (routes
        
-       (GET "/" [] "
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href=\"/static/css/bundle.css\" rel=\"stylesheet\">
-  </head>
-  <body>
-     <div class=\"container\">
-       <h1>Hello world!</h1>
-     </div>
-  </body>
-</h1>")
+       (GET "/" [] (render-file "templates/home.html" {}))
 
        (route/resources "/static/"))
       
