@@ -10,4 +10,4 @@
 
 (deftest hello-world
   (goto system "/")
-  (is (= (wd/text "main > h1") "Hello world!")))
+  (is (= (count (wd/elements "h1.hero")) 1)))

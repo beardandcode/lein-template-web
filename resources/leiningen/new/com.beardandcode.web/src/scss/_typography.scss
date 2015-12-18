@@ -1,0 +1,32 @@
+$base-font-size: 18px;
+$base-font-weight: 300;
+
+html {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: $base-font-size;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $base-font-weight;
+}
+
+header h1 {
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+}
+
+header ul {
+    // to combat the whitespace between LIs
+    font-size: 0;
+    li { font-size: $base-font-size; }
+}
+
+h1.hero {
+    font-size: ($base-font-size * 3);
+
+    @include gridle_state(sm) {
+        font-size: ($base-font-size * 6);
+    }
+}

@@ -20,10 +20,15 @@
     (with-open [in (io/input-stream uri)]
       (io/copy in output-file))))
 
+(defn humanise [name]
+  (-> name (clojure.string/replace #"[-_]" " ")
+      (clojure.string/capitalize)))
+
 (defn com.beardandcode.web
   [name & args]
   (let [data {:name name
-              :name-path (name-to-path name)}]
+              :name-path (name-to-path name)
+              :human-name (humanise name)}]
     (main/info "Generating fresh 'lein new' com.beardandcode.web project.")
     (->files data
              ["LICENSE" (render "LICENSE" data)]
