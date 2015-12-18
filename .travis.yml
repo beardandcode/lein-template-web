@@ -2,4 +2,15 @@ language: clojure
 lein: lein2
 jdk:
   - oraclejdk8
+addons:
+  apt:
+    packages:
+      - automake
+      - libtool
+before_install:
+  - git clone https://github.com/sass/libsass.git
+  - git clone https://github.com/sass/sassc.git libsass/sassc
+  - cd libsass && git checkout 3.3.2 && autoreconf --force --install && make -j5 && cd ..
+  - cd libsass/sassc && git checkout 3.3.0 && SASS_LIBSASS_PATH=../ make && cd ../..
+  - export PATH="`pwd`/libsass/sassc/bin:$PATH"
 sudo: false
