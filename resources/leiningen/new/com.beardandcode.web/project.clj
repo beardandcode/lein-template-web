@@ -20,7 +20,9 @@
                  [compojure "1.4.0"]
                  [ring/ring-anti-forgery "1.0.0"]
                  [selmer "0.9.5"]
-                 [buddy/buddy-auth "0.8.2"]]
+                 [buddy/buddy-auth "0.8.2"]
+                 [metrics-clojure "2.6.0"]
+                 [metrics-clojure-ring "2.6.0"]]
 
   :source-paths ["src/clj"]
   :test-paths ["test/clj"]

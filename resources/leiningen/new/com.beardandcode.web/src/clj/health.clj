@@ -6,6 +6,7 @@
             [cheshire.core :as json]
             [compojure.core :refer :all]
             [compojure.route :as route]
+            [metrics.ring.expose :refer [serve-metrics]]
             [ring.middleware.params :refer [wrap-params]]))
 
 (defprotocol IHealthcheck
@@ -45,6 +46,8 @@
          (GET "/" [:as request] (json-response {:app true}))
 
          (GET "/environment-variables" [] (json-response environ.core/env))
+
+         (GET "/metrics" [] (serve-metrics nil))
 
          (route/resources "/static/"))
 
