@@ -40,11 +40,13 @@
              ["resources/public/css/.gitkeep" ""]
              ["src/clj/com/beardandcode/tools.clj" (render "tools.clj" data)]
              ["src/clj/com/beardandcode/{{name-path}}.clj" (render "entrypoint.clj" data)]
-             ["src/clj/com/beardandcode/{{name-path}}/webapp.clj" (render "src/clj/webapp.clj" data)]
+             ["src/clj/com/beardandcode/{{name-path}}/health.clj" (render "src/clj/health.clj" data)]
              ["src/clj/com/beardandcode/{{name-path}}/system.clj" (render "src/clj/system.clj" data)]
+             ["src/clj/com/beardandcode/{{name-path}}/webapp.clj" (render "src/clj/webapp.clj" data)]
              ["src/templates/base.html" (render "src/templates/base.html" data)]
              ["src/templates/home.html" (render "src/templates/home.html" data)]
              ["test/clj/com/beardandcode/{{name-path}}/integration.clj" (render "test/clj/integration.clj" data)]
+             ["test/clj/com/beardandcode/{{name-path}}/integration/health_test.clj" (render "test/clj/integration/health_test.clj" data)]
              ["test/clj/com/beardandcode/{{name-path}}/integration/webapp_test.clj" (render "test/clj/integration/webapp_test.clj" data)])
     (copy-resource-dir "leiningen/new/com.beardandcode.web/src/scss"
                        (str (base-path name) "/src/scss"))))

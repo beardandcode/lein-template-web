@@ -19,7 +19,8 @@
                  [com.beardandcode/components "0.1.2"]
                  [compojure "1.4.0"]
                  [ring/ring-anti-forgery "1.0.0"]
-                 [selmer "0.9.5"]]
+                 [selmer "0.9.5"]
+                 [buddy/buddy-auth "0.8.2"]]
 
   :source-paths ["src/clj"]
   :test-paths ["test/clj"]
@@ -36,7 +37,8 @@
                                    :exclusion [org.seleniumhq.selenium/selenium-java
                                                org.seleniumhq.selenium/selenium-server
                                                org.seleniumhq.selenium/selenium-remote-driver]]
-                                  [org.seleniumhq.selenium/selenium-java "2.48.2"]]
+                                  [org.seleniumhq.selenium/selenium-java "2.48.2"]
+                                  [clj-http "2.0.0"]]
                    :source-paths ["dev"]
                    :env {:ip-address "127.0.0.1"
                          :port 8080}}
