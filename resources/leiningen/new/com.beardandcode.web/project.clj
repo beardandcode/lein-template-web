@@ -1,9 +1,9 @@
 (defproject com.beardandcode/{{name}} "0.1.0"
   :description "A web app"
   :url "https://github.com/beardandcode/{{name}}"
-  :license {:name "GPLv3"
-            :url "http://www.gnu.org/copyleft/gpl.html"}
-  
+  {{#license}}:license {:name "{{name}}"
+            :url "{{url}}"}
+  {{/license}}
   :min-lein-version "2.0.0"
   
   :plugins [[lein-ancient "0.6.7"]
