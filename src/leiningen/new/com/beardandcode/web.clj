@@ -32,6 +32,8 @@
     (main/info "Generating fresh 'lein new' com.beardandcode.web project.")
     (->files data
              [".gitignore" (render "gitignore" data)]
+             ["app.json" (render "app.json" data)]
+             ["Procfile" (render "Procfile" data)]
              ["LICENSE" (render "LICENSE" data)]
              ["project.clj" (render "project.clj" data)]
              ["README.md" (render "README.md" data)]

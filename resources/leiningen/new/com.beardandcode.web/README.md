@@ -8,7 +8,9 @@ A web application that does something super awesome.
 
 ## Try
 
-Find your way to the directory where you checked out this project and execute the following:
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+Or, find your way to the directory where you checked out this project and execute the following:
 
 ```
 $ lein repl
