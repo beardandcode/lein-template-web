@@ -6,6 +6,7 @@
             [cheshire.core :as json]
             [compojure.core :refer :all]
             [compojure.route :as route]
+            [environ.core :refer [env]]
             [metrics.ring.expose :refer [serve-metrics]]
             [ring.middleware.params :refer [wrap-params]]))
 
@@ -45,7 +46,7 @@
 
          (GET "/" [:as request] (json-response {:app true}))
 
-         (GET "/environment-variables" [] (json-response environ.core/env))
+         (GET "/environment-variables" [] (json-response env))
 
          (GET "/metrics" [] (serve-metrics nil))
 
