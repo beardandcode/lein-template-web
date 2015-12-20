@@ -22,3 +22,8 @@
                                                  (<= value-index (count values))))))
                      last Integer/parseInt dec)]
       (nth values answer))))
+
+(defn check [question]
+  (let [prompt (str question " (y/n) ")]
+    (-> (ask-until prompt #(or (nil? %) (re-matches #"^[yn]$" %)))
+        last (= "y"))))

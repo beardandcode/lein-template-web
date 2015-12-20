@@ -1,6 +1,7 @@
 (ns leiningen.new.com.beardandcode.web-test
   (:require [clojure.test :refer :all]
             [clojure.java.shell :refer [sh]]
+            [me.raynes.fs :as fs]
             [leiningen.new.com.beardandcode.web :as web]))
 
 (defn assert-sh [& args]
@@ -39,4 +40,14 @@
         project-map (->> project-clj (drop 3) (apply hash-map))]
     (is (= (-> project-map :license :name) "MIT")))
   (assert-sh "grep" "The MIT License" "test-output/LICENSE")
+  (assert-sh "rm" "-rf" "test-output"))
+
+(deftest by-default-no-git
+  (assert-sh "lein" "new" "com.beardandcode.web" "test-output" "--" "--license" "mit")
+  (is (not (fs/exists? "test-output/.git")))
+  (assert-sh "rm" "-rf" "test-output"))
+
+(deftest initialise-with-git
+  (assert-sh "lein" "new" "com.beardandcode.web" "test-output" "--" "--license" "mit" "--git")
+  (is (fs/exists? "test-output/.git"))
   (assert-sh "rm" "-rf" "test-output"))

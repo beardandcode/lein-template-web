@@ -5,7 +5,7 @@
             [me.raynes.fs :as fs]
             [leiningen.new.templates :refer [renderer year name-to-path ->files]]
             [leiningen.core.main :as main]
-            [leiningen.new.com.beardandcode.interaction :refer [pick-value]]))
+            [leiningen.new.com.beardandcode.interaction :refer [pick-value check]]))
 
 (def render (renderer "com.beardandcode.web"))
 
@@ -37,7 +37,8 @@
   [["-l" "--license TYPE" "License"
     :parse-fn #(-> % clojure.string/lower-case keyword)
     :validate [#(-> licenses keys set (contains? %))
-               (format "Must be one of #{%s}" (clojure.string/join " " (map keyword-to-str (keys licenses))))]]])
+               (format "Must be one of #{%s}" (clojure.string/join " " (map keyword-to-str (keys licenses))))]]
+   ["-g" "--git" "Initialise as git repository"]])
 
 (defn com.beardandcode.web
   [name & args]
@@ -61,7 +62,9 @@
                   :username (System/getProperty "user.name")
                   :license (or (licenses (-> cli :options :license))
                                (pick-value "Which license would you like to use for this project?"
-                                           (vals licenses) :name))}]
+                                           (vals licenses) :name))}
+            initialise-with-git? (or (-> cli :options :git)
+                                     (check "Would you like the project initialised with git?"))]
         (->files data
              [".gitignore" (render "gitignore" data)]
              ["app.json" (render "app.json" data)]
@@ -82,7 +85,12 @@
              ["test/clj/com/beardandcode/{{name-path}}/integration.clj" (render "test/clj/integration.clj" data)]
              ["test/clj/com/beardandcode/{{name-path}}/integration/health_test.clj" (render "test/clj/integration/health_test.clj" data)]
              ["test/clj/com/beardandcode/{{name-path}}/integration/webapp_test.clj" (render "test/clj/integration/webapp_test.clj" data)])
+
         (copy-resource-dir "leiningen/new/com.beardandcode.web/src/scss"
-                           (str (base-path name) "/src/scss")))
+                           (str (base-path name) "/src/scss"))
+
+        (if initialise-with-git?
+          (clojure.java.shell/sh "git" "init" :dir (base-path name))))
+
       (do (doall (map println (:errors cli)))
           (System/exit 1)))))
