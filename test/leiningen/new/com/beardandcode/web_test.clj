@@ -50,4 +50,5 @@
 (deftest initialise-with-git
   (assert-sh "lein" "new" "com.beardandcode.web" "test-output" "--" "--license" "mit" "--git")
   (is (fs/exists? "test-output/.git"))
+  (assert-sh "git" "rev-list" "HEAD" "--count") ;; we should have commits
   (assert-sh "rm" "-rf" "test-output"))

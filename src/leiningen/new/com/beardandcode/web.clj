@@ -90,7 +90,10 @@
                            (str (base-path name) "/src/scss"))
 
         (if initialise-with-git?
-          (clojure.java.shell/sh "git" "init" :dir (base-path name))))
+          (clojure.java.shell/with-sh-dir (base-path name)
+            (clojure.java.shell/sh "git" "init")
+            (clojure.java.shell/sh "git" "add" ".")
+            (clojure.java.shell/sh "git" "commit" "-m" "Initial commit from beardandcode/lein-template-web"))))
 
       (do (doall (map println (:errors cli)))
           (System/exit 1)))))
